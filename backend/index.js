@@ -17,7 +17,11 @@ const ownerWishbookRoutes = require("./Routes/OwnerWishbook/OwnerWishbookRoutes"
 
 
 
+
 const app = express();
+
+app.use("/", express.static(path.join(__dirname ,"build")))
+
 
 app.use(cookieSession(
     {
@@ -53,6 +57,7 @@ app.use('/user' ,userRoutes);
 app.use('/post' ,postRoutes);
 app.use('/auth' ,authRoute);
 app.use('/wishbook',wishbookRoutes)
+
 // user section
 
 // owner section
@@ -65,6 +70,9 @@ app.use('/ownerwishbook',ownerWishbookRoutes)
 app.use('/admin',adminRoute);
 // admin section
 
+app.use((req, res, next)=>{
+    res.sendFile(path.join(__dirname,"build", "index.html"));
+  });
 
 const PORT = process.env.PORT || 8080
 
