@@ -37,7 +37,7 @@ function ProfessionalCard({
 
   const sum = ratings.reduce((total, rating) => total + rating, 0);
   const averageRating = (sum / ratings?.length).toFixed(1);
-
+  const [isSaved, setIsSaved] = React.useState(false);
   const savedProfessional = (
     name,
     email,

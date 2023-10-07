@@ -19,7 +19,7 @@ function AllBeforeAfterImages() {
   const [loading, setLoading] = useState(false);
 
   const toast = useToast();
-
+  const bg = useColorModeValue("white", "gray.800");
   const fetchData = () => {
     setLoading(true);
     fetch(
@@ -131,7 +131,7 @@ function AllBeforeAfterImages() {
                           p={6}
                           maxW={"330px"}
                           w={"full"}
-                          bg={useColorModeValue("white", "gray.800")}
+                          bg={bg}
                           boxShadow={"2xl"}
                           rounded={"lg"}
                           pos={"relative"}

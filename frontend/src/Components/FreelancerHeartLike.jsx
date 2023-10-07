@@ -1,7 +1,7 @@
 import { Box, Circle, useToast } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
-
+import { useNavigate } from "react-router-dom";
 function FreelancerHeartLike({
   name,
   email,
@@ -132,7 +132,7 @@ function FreelancerHeartLike({
   //     });
   //   }
   // };
-
+  const navigate = useNavigate();
   const handleLikeClick = () => {
     if(token){
       fetch("https://interiorme.onrender.com/wishbook/checkSavedFreelancer",{
@@ -181,6 +181,8 @@ function FreelancerHeartLike({
         duration: 1000,
         isClosable: true,
       });
+      // navigate("/user-login")
+      
       navigate("/user-login")
     }
   }
